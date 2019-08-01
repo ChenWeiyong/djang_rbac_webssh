@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="/static/jquery.min.js"></script>
+
+    <script src="/static/layer/layer.js"></script>
+</head>
+<body>
+
+<div class="container">
+    <table border="1">
+        <thead>
+        <tr>
+            <th>序号</th>
+            <th>操作</th>
+        </tr>
+        </thead>
+    </table>
+    <tr>
+        <td>1</td>
+        <td>
+            <a href="#">
+                <button type="button" onclick="return pop()">
+                    Webssh
+                </button>
+            </a>
+        </td>
+    </tr>
+
+</div>
+
+
+<script>
+
+    function pop() {
+        layer.open({
+            type: 2 //此处以iframe举例
+            , title: '正在远程连接_'
+            , area: ['770px', '560px']
+            , shade: 0
+            , maxmin: true,
+            content: ['/index'],
+            btn: ['关闭连接'] //只是为了演示
+            , btn2: function () {
+                layer.closeAll();
+            }
+            , zIndex: layer.zIndex //重点1
+            , success: function (layero) {
+                layer.setTop(layero); //重点2
+            },
+        });
+    }
+
+</script>
+
+</body>
+</html>
